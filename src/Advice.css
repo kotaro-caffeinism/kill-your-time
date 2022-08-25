@@ -1,0 +1,16 @@
+@media screen and (min-width: 481px) {
+    .display-advice {
+        font-family:'Times New Roman', Times, serif;
+        font-size: 30px;
+        margin: 0 auto;
+        text-align: center;
+        background-color: aquamarine;
+        height: auto;
+        width: 800px;
+        margin-bottom: 20px;
+        padding: 28px;                                        
+    }
+}
+
+@media screen and (max-width: 480px) {
+}
