@@ -27,6 +27,7 @@ export default function Advice({ currentText, setText }) {
         )}
         <div>
           <Box
+            className="button-box"
             display="flex"
             alignItems="center"
             justifyContent="center"

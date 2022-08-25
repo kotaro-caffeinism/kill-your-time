@@ -13,4 +13,19 @@
 }
 
 @media screen and (max-width: 480px) {
+    .button-box {
+        transform: scale(0.8);
+    }
+
+    .display-advice {
+        font-family:'Times New Roman', Times, serif;
+        font-size: 20px;
+        margin: 0 auto;
+        text-align: center;
+        background-color: aquamarine;
+        height: auto;
+        width: 350px;
+        margin-bottom: 20px;
+        padding: 28px;                                        
+    }
 }
