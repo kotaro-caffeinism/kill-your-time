@@ -1,5 +1,7 @@
 # Kill your time
 
+"このリポジトリは Code Chrysalis の生徒であるときに作成しました（This was created during my time as a student at Code Chrysalis）"
+
 ## 目次
 
 - [アプリ概要](#アプリ概要)
