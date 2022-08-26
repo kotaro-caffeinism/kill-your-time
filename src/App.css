@@ -13,6 +13,16 @@
     height: 18%;
     margin-left: 10px;
   }
+
+  .input-holder {
+    color: gold;
+  }
+  .input-name {
+    background-color:darkgray;
+    margin-left: 50px;
+    padding: auto 500px;
+  }
+   
 }
 
 @media screen and (max-width: 480px) {

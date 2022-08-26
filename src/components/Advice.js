@@ -1,7 +1,6 @@
 import { Box, Button, ButtonGroup } from "@chakra-ui/react";
 import "../Advice.css";
 import { getActivity, getBuzzword, getAdvice, getJoke } from "../utils/getAPI";
-import logo from "../img/like.png";
 
 export default function Advice({ currentText, setText }) {
   function jokeOrAdviceText() {
@@ -65,7 +64,6 @@ export default function Advice({ currentText, setText }) {
               </Button>
             </ButtonGroup>
           </Box>
-          <img className="favorite-button" src={logo}></img>
         </div>
       </section>
     </>
