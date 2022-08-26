@@ -1,16 +1,28 @@
-import logo from "./img/App-logo.png";
+import logo from "./img/logo.png";
 import "./App.css";
-import { activity, buzzword, advice, joke } from "./utils/getAPI.js";
+import React, { useEffect, useState } from "react";
+import {
+  getActivity,
+  getBuzzword,
+  getAdvice,
+  getJoke,
+} from "./utils/getAPI.js";
+import Advice from "./components/Advice";
 
 function App() {
-  console.log(joke());
-  advice().then((res) => console.log(res.slip.advice));
-  buzzword().then((res) => console.log(res.phrase));
-  activity().then((res) => console.log(res.activity));
+  const [currentText, setText] = useState("");
+
+  console.log(getJoke());
+  getAdvice().then((res) => console.log(res.slip.advice));
+  getBuzzword().then((res) => console.log(res.phrase));
+  getActivity().then((res) => console.log(res.activity));
   return (
-    <div className="App">
-      <img src={logo} className="App-logo" alt="logo" />
-    </div>
+    <>
+      <div className="App">
+        <img src={logo} className="App-logo" alt="logo" />
+        <Advice setText={setText} currentText={currentText} />
+      </div>
+    </>
   );
 }
 
