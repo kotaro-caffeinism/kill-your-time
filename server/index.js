@@ -1,6 +1,7 @@
 require("dotenv").config();
 const app = require("./app");
 const db = require("./knex");
+const Migrate = require("../migrations/001_users_table");
 
 const PORT = process.env.PORT || 9000;
 
@@ -8,9 +9,7 @@ const PORT = process.env.PORT || 9000;
   try {
     console.log("Running migrations...");
 
-    // await db.migrate.rollback(undefined, true);
-    // await db.migrate.latest();
-    // await db.seed.run();
+    await Migrate.setTable();
 
     console.log("Starting express...");
     app.listen(PORT, () => {
