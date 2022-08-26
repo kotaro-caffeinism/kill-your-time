@@ -2,15 +2,7 @@ import logo from "./img/logo.png";
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import Advice from "./components/Advice";
-import {
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
-  Input,
-  Button,
-} from "@chakra-ui/react";
-import favorite from "./img/like.png";
+import { FormControl, Input, Button } from "@chakra-ui/react";
 import FavTable from "./components/FavTable";
 
 function App() {
@@ -18,9 +10,6 @@ function App() {
   const [username, setName] = useState([]);
   const [phrases, setPhrases] = useState([]);
   const [justName, setJustName] = useState("");
-
-  // const result = fetch(`/api/favorites?user=${justName[0]}`);
-  // result.then((res) => console.log(res));
 
   useEffect(() => {
     getPhrases(justName);
@@ -64,8 +53,10 @@ function App() {
     <>
       <div className="App">
         <img src={logo} className="App-logo" alt="logo" />
+        <span className="input-name">
+          If you have used it before, enter the same nickname
+        </span>
         <FormControl className="input-form">
-          {/* <FormLabel>nickname</FormLabel> */}
           <Input
             placeholder="nickname"
             className="input-holder"
@@ -78,35 +69,34 @@ function App() {
               }
             }}
           />
-          <FormHelperText className="input-name">
-            If you have used it before, enter the same nickname
-            <Button
-              mt={4}
-              colorScheme="teal"
-              type="submit"
-              onClick={() => {
-                const result = username.toString().replace(/,/g, "");
-                console.log("name", result);
-                setJustName(result);
-                fetchUsers(result);
-                console.log({ justName });
-              }}
-            >
-              signin
-            </Button>
-          </FormHelperText>
+          <Button
+            className="signin"
+            colorScheme="teal"
+            type="submit"
+            onClick={() => {
+              const result = username.toString().replace(/,/g, "");
+              console.log("name", result);
+              setJustName(result);
+              fetchUsers(result);
+              if (justName.length === 0) {
+                setPhrases([]);
+              }
+              console.log({ justName });
+            }}
+          >
+            signin
+          </Button>
         </FormControl>
-        <Advice setText={setText} currentText={currentText} />
-        <img
-          className="favorite-button"
-          src={favorite}
-          onClick={() => {
-            console.log({ Hey: justName });
-            if (!currentText.length) {
-              fetchPhrase(justName, currentText);
-            }
-          }}
-        ></img>
+
+        <Advice
+          setText={setText}
+          currentText={currentText}
+          justName={justName}
+          fetchPhrase={fetchPhrase}
+          setPhrases={setPhrases}
+          phrases={phrases}
+          getPhrases={getPhrases}
+        />
       </div>
       <FavTable getPhrases={getPhrases} phrases={phrases} justName={justName} />
     </>
