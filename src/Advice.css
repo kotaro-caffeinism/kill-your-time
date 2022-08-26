@@ -2,11 +2,13 @@
     .display-advice {
         font-family:'Times New Roman', Times, serif;
         font-size: 30px;
-        margin: 0 auto;
+        margin: 20px auto;
+        margin-top: 50px;
         text-align: center;
         background-color: #66CDAA;
         height: auto;
-        width: 800px;
+        width: 70%;
+        border-radius: 90px 10px 90px 10px;
         margin-bottom: 20px;
         padding: 28px;                                        
     }
@@ -19,23 +21,25 @@
 
 @media screen and (max-width: 480px) {
     .button-box {
-        transform: scale(0.7);
+        transform: scale(0.75);
     }
 
     .display-advice {
         font-family:'Times New Roman', Times, serif;
         font-size: 20px;
-        margin: 0 auto;
+        margin: 20px auto;
+        margin-top: 50px;
         text-align: center;
         background-color: #66CDAA;
         height: auto;
         width: 350px;
+        border-radius: 60px 10px 60px 10px;
         margin-bottom: 20px;
         padding: 28px;                                        
     }
 
     .favorite-button {
-        height: 40px;
-        margin: 0 auto;
+        transform: scale(0.9);
+        margin: 5px auto;
      }
 }

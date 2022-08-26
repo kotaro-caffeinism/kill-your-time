@@ -2,7 +2,13 @@ import { Box, Button, ButtonGroup } from "@chakra-ui/react";
 import "../Advice.css";
 import { getActivity, getBuzzword, getAdvice, getJoke } from "../utils/getAPI";
 
-export default function Advice({ currentText, setText }) {
+export default function Advice({
+  currentText,
+  setText,
+  justName,
+  fetchPhrase,
+  getPhrases,
+}) {
   function jokeOrAdviceText() {
     const num = Math.floor(Math.random() * 8);
     if (num === 3) {
@@ -19,8 +25,6 @@ export default function Advice({ currentText, setText }) {
   function activityText() {
     getActivity().then((res) => setText(res.activity));
   }
-
-  function addPhrase() {}
 
   return (
     <>
@@ -40,17 +44,17 @@ export default function Advice({ currentText, setText }) {
             justifyContent="center"
             width="100%"
           >
-            <ButtonGroup gap="4">
+            <ButtonGroup>
               <Button
-                colorScheme="telegram"
+                colorScheme="teal"
                 variant="solid"
                 onClick={() => jokeOrAdviceText()}
               >
                 Get An Advice
               </Button>
               <Button
-                colorScheme="cyan"
-                variant="ghost"
+                colorScheme="blackAlpha"
+                variant="solid"
                 onClick={() => emptyText()}
               >
                 Get An Empty Phrase
@@ -64,6 +68,20 @@ export default function Advice({ currentText, setText }) {
               </Button>
             </ButtonGroup>
           </Box>
+          <Button
+            colorScheme="whiteAlpha"
+            variant="solid"
+            onClick={() => {
+              console.log({ Hey: justName, currentText });
+              if (currentText.length > 0) {
+                fetchPhrase(justName, currentText);
+                getPhrases(justName);
+              }
+            }}
+            className="favorite-button"
+          >
+            ➕💖
+          </Button>
         </div>
       </section>
     </>
