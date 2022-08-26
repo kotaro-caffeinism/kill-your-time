@@ -8,10 +8,11 @@ app.use(express.json());
 
 module.exports = app;
 
-app.get("/api/favorite", async (req, res) => {
+app.get("/api/favorites/:user", async (req, res) => {
   try {
-    // req.query.words
-    // if(req.query.user )
+    const userName = req.params.user;
+    const phrase = await db(`${userName}_items`).select();
+    res.send(phrase);
   } catch (err) {
     console.error("Error loading locations!", err);
     res.sendStatus(500);

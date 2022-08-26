@@ -11,11 +11,20 @@ import {
   Button,
 } from "@chakra-ui/react";
 import favorite from "./img/like.png";
+import FavTable from "./components/FavTable";
 
 function App() {
   const [currentText, setText] = useState("");
   const [username, setName] = useState([]);
-  const justName = [];
+  const [phrases, setPhrases] = useState([]);
+  const [justName, setJustName] = useState("");
+
+  // const result = fetch(`/api/favorites?user=${justName[0]}`);
+  // result.then((res) => console.log(res));
+
+  useEffect(() => {
+    getPhrases(justName);
+  }, [justName]);
 
   async function fetchUsers(nickname) {
     const obj = { nickname };
@@ -28,6 +37,14 @@ function App() {
     await fetch("/api/users", { method, headers, body }).then((res) =>
       res.json()
     );
+  }
+  async function getPhrases(user) {
+    await fetch(`/api/favorites/${user}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setPhrases(data);
+        console.log(phrases);
+      });
   }
 
   async function fetchPhrase(user, phrase) {
@@ -69,10 +86,8 @@ function App() {
               type="submit"
               onClick={() => {
                 const result = username.toString().replace(/,/g, "");
-                if (!justName.length) {
-                  justName.pop();
-                }
-                justName.push(result);
+                console.log("name", result);
+                setJustName(result);
                 fetchUsers(result);
                 console.log({ justName });
               }}
@@ -86,11 +101,14 @@ function App() {
           className="favorite-button"
           src={favorite}
           onClick={() => {
-            console.log({ Hey: justName[0] });
-            fetchPhrase(justName[0], currentText);
+            console.log({ Hey: justName });
+            if (!currentText.length) {
+              fetchPhrase(justName, currentText);
+            }
           }}
         ></img>
       </div>
+      <FavTable getPhrases={getPhrases} phrases={phrases} justName={justName} />
     </>
   );
 }
