@@ -1,6 +1,7 @@
 import { Box, Button, ButtonGroup } from "@chakra-ui/react";
 import "../Advice.css";
 import { getActivity, getBuzzword, getAdvice, getJoke } from "../utils/getAPI";
+import logo from "../img/like.png";
 
 export default function Advice({ currentText, setText }) {
   function jokeOrAdviceText() {
@@ -15,6 +16,13 @@ export default function Advice({ currentText, setText }) {
   function emptyText() {
     getBuzzword().then((res) => setText(res.phrase));
   }
+
+  function activityText() {
+    getActivity().then((res) => setText(res.activity));
+  }
+
+  function addPhrase() {}
+
   return (
     <>
       <section>
@@ -42,14 +50,22 @@ export default function Advice({ currentText, setText }) {
                 Get An Advice
               </Button>
               <Button
-                colorScheme="teal"
-                variant="solid"
+                colorScheme="cyan"
+                variant="ghost"
                 onClick={() => emptyText()}
               >
                 Get An Empty Phrase
               </Button>
+              <Button
+                colorScheme="teal"
+                variant="solid"
+                onClick={() => activityText()}
+              >
+                What Will I Do?
+              </Button>
             </ButtonGroup>
           </Box>
+          <img className="favorite-button" src={logo}></img>
         </div>
       </section>
     </>
