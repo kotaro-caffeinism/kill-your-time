@@ -98,7 +98,13 @@ function App() {
           getPhrases={getPhrases}
         />
       </div>
-      <FavTable getPhrases={getPhrases} phrases={phrases} justName={justName} />
+      <div className="favDiv">
+        <FavTable
+          getPhrases={getPhrases}
+          phrases={phrases}
+          justName={justName}
+        />
+      </div>
     </>
   );
 }

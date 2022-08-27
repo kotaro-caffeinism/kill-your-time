@@ -17,9 +17,10 @@
   .input-form {
     display: flex;
     height: 50px;
-    padding-left: 600px;
-    padding-right: 600px;
+    padding-left: 30%;
+    padding-right: 30%;
     margin-top: 10px;
+    color:aqua;
   }
 
   .input-name {
@@ -33,6 +34,16 @@
    margin-left: 10px;
    margin-right: 10px;
   }
+
+  .favDiv {
+    text-align: center;
+    height: 100vh;
+    width: auto;
+    background-image: url(./img/books.jpg);
+    background-position: 50% 40%;
+    background-size: cover;
+  }
+   
    
 }
 
@@ -55,10 +66,11 @@
   .input-form {
     display: flex;
     height: 30px;
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 10%;
+    padding-right: 10%;
     margin-bottom: 20px;
     margin-top: 10px;
+    color:aqua;
   }
 
   
@@ -74,6 +86,15 @@
   .signin {
    margin-left: 10px;
    margin-right: 10px;
+  }
+
+  .favDiv {
+    text-align: center;
+    height: 100vh;
+    width: auto;
+    background-image: url(./img/books.jpg);
+    background-position: 50% 40%;
+    background-size: cover;
   }
    
 }
