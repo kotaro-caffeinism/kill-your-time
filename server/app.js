@@ -57,3 +57,15 @@ app.post("/api/phrase", async (req, res) => {
     res.sendStatus(500);
   }
 });
+
+app.delete("/api/delphrase", async (req, res) => {
+  try {
+    const phraseId = req.body.id;
+    const userName = req.body.name;
+    console.log("delete", { phraseId, userName });
+    await db(`${userName}_items`).where({ id: phraseId }).del();
+  } catch (err) {
+    console.error("Error loading locations!", err);
+    res.sendStatus(500);
+  }
+});

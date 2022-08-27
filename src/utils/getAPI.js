@@ -17,6 +17,8 @@ export async function getBuzzword() {
 }
 
 export async function getActivity() {
-  const res = await fetch("https://www.boredapi.com/api/activity/");
+  // リンク先が”保護されいていないページ”と出るから、http:を省略して呼び出している。
+  // 参考URL[混合コンテンツでブロックとなった時の確認と対策]https://jpdirect.jp/knowledge/ssl/aossl-blocking-mixedcontent.html
+  const res = await fetch("//www.boredapi.com/api/activity/");
   return await res.json();
 }

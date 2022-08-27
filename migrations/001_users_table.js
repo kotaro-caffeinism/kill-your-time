@@ -15,12 +15,14 @@ const db = require("../knex");
 
 class Migrate {
   setTable() {
-    if (!db("users")) {
-      return db.schema.createTable("users", (table) => {
-        table.increments("id", { primaryKey: true });
-        table.string("name").notNullable();
-      });
-    }
+    return db.schema.hasTable("users").then((exists) => {
+      if (!exists) {
+        return db.schema.createTable("users", (table) => {
+          table.increments("id", { primaryKey: true });
+          table.string("name").notNullable();
+        });
+      }
+    });
   }
 
   dropTable() {
