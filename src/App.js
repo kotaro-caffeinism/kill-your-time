@@ -11,9 +11,9 @@ function App() {
   const [phrases, setPhrases] = useState([]);
   const [justName, setJustName] = useState("");
 
-  useEffect(() => {
-    getPhrases(justName);
-  }, [justName]);
+  // useEffect(() => {
+  //   getPhrases(justName);
+  // }, [justName]);
 
   async function fetchUsers(nickname) {
     const obj = { nickname };
@@ -81,6 +81,7 @@ function App() {
               if (justName.length === 0) {
                 setPhrases([]);
               }
+              getPhrases(justName);
               console.log({ justName });
             }}
           >

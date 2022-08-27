@@ -1,14 +1,7 @@
-import {
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
-  TableContainer,
-} from "@chakra-ui/react";
+import { Table, Thead, Tr, Th, TableContainer } from "@chakra-ui/react";
 import "../FavTable.css";
-import { Button } from "@chakra-ui/react";
+// import { Button } from "@chakra-ui/react";
+import List from "./List";
 
 export default function FavTable({ phrases, getPhrases, justName }) {
   console.log(phrases);
@@ -36,40 +29,12 @@ export default function FavTable({ phrases, getPhrases, justName }) {
               <Th>delete</Th>
             </Tr>
           </Thead>
-          <Tbody>
-            {phrases.length > 0 ? (
-              phrases.map((obj, index) => {
-                return (
-                  <Tr key={index}>
-                    <Td>{obj.id}</Td>
-                    <Td>{obj.phrase}</Td>
-                    <Td>
-                      <Button
-                        colorScheme="teal"
-                        variant="solid"
-                        onClick={async () => {
-                          await deletePhrase(justName, obj.id);
-                          await getPhrases(justName);
-                        }}
-                      >
-                        delete
-                      </Button>
-                    </Td>
-                  </Tr>
-                );
-              })
-            ) : (
-              <Tr>
-                <Td>id</Td>
-                <Td>phrase</Td>
-                <Td>
-                  <Button colorScheme="teal" variant="solid">
-                    Button
-                  </Button>
-                </Td>
-              </Tr>
-            )}
-          </Tbody>
+          <List
+            phrases={phrases}
+            getPhrases={getPhrases}
+            justName={justName}
+            deletePhrase={deletePhrase}
+          />
         </Table>
       </TableContainer>
     </section>
