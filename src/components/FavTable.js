@@ -62,9 +62,11 @@ export default function FavTable({ phrases, getPhrases, justName }) {
               <Tr>
                 <Td>id</Td>
                 <Td>phrase</Td>
-                <Button colorScheme="teal" variant="solid">
-                  Button
-                </Button>
+                <Td>
+                  <Button colorScheme="teal" variant="solid">
+                    Button
+                  </Button>
+                </Td>
               </Tr>
             )}
           </Tbody>
