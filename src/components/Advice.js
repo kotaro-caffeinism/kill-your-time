@@ -71,11 +71,11 @@ export default function Advice({
           <Button
             colorScheme="whiteAlpha"
             variant="solid"
-            onClick={() => {
+            onClick={async () => {
               console.log({ Hey: justName, currentText });
               if (currentText.length > 0) {
-                fetchPhrase(justName, currentText);
-                getPhrases(justName);
+                await fetchPhrase(justName, currentText);
+                await getPhrases(justName);
               }
             }}
             className="favorite-button"

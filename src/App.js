@@ -73,11 +73,11 @@ function App() {
             className="signin"
             colorScheme="teal"
             type="submit"
-            onClick={() => {
+            onClick={async () => {
               const result = username.toString().replace(/,/g, "");
               console.log("name", result);
               setJustName(result);
-              fetchUsers(result);
+              await fetchUsers(result);
               if (justName.length === 0) {
                 setPhrases([]);
               }

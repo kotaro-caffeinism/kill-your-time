@@ -47,9 +47,9 @@ export default function FavTable({ phrases, getPhrases, justName }) {
                       <Button
                         colorScheme="teal"
                         variant="solid"
-                        onClick={() => {
-                          deletePhrase(justName, obj.id);
-                          getPhrases(justName);
+                        onClick={async () => {
+                          await deletePhrase(justName, obj.id);
+                          await getPhrases(justName);
                         }}
                       >
                         delete
