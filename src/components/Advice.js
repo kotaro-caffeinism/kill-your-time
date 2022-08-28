@@ -1,6 +1,8 @@
 import { Box, Button, ButtonGroup } from "@chakra-ui/react";
 import "../Advice.css";
 import { getActivity, getBuzzword, getAdvice, getJoke } from "../utils/getAPI";
+// import { TwitterShareButton } from "react-share";
+import { FaTwitter } from "react-icons/fa";
 
 export default function Advice({
   currentText,
@@ -82,6 +84,15 @@ export default function Advice({
           >
             ➕💖
           </Button>
+          <a
+            href={`http://twitter.com/share?url=localhost:3000&text="${currentText}"&hashtags=killyourtime`}
+            class="twitter-share-button"
+            data-text={currentText}
+            data-hashtags="killyourtime"
+            data-show-count="false"
+          >
+            Tweet
+          </a>
         </div>
       </section>
     </>

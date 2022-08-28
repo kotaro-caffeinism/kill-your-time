@@ -17,6 +17,14 @@
        height: 50px;
        margin: 10px auto;
     }
+
+    .twitter-share-button {
+        background-color: #55acee;
+        padding: 10px;
+        border-radius: 10%;
+        margin-left: 6px;
+        color: aliceblue;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -42,4 +50,12 @@
         transform: scale(0.9);
         margin: 5px auto;
      }
+
+     .twitter-share-button {
+        background-color: #55acee;
+        padding: 10px;
+        border-radius: 10%;
+        margin-left: 6px;
+        color: aliceblue;
+    }
 }
