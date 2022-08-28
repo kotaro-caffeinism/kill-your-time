@@ -1,8 +1,6 @@
 import { Box, Button, ButtonGroup } from "@chakra-ui/react";
 import "../Advice.css";
 import { getActivity, getBuzzword, getAdvice, getJoke } from "../utils/getAPI";
-// import { TwitterShareButton } from "react-share";
-import { FaTwitter } from "react-icons/fa";
 
 export default function Advice({
   currentText,
