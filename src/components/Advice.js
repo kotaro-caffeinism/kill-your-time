@@ -82,6 +82,15 @@ export default function Advice({
           >
             ➕💖
           </Button>
+          <a
+            href={`http://twitter.com/share?url=localhost:3000&text="${currentText}"&hashtags=killyourtime`}
+            class="twitter-share-button"
+            data-text={currentText}
+            data-hashtags="killyourtime"
+            data-show-count="false"
+          >
+            Tweet
+          </a>
         </div>
       </section>
     </>
